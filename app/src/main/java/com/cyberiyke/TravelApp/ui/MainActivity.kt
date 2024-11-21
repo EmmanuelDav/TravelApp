@@ -8,8 +8,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.cyberiyke.newsApp.R
-import com.cyberiyke.newsApp.databinding.ActivityMainBinding
+import com.cyberiyke.TravelApp.R
+import com.cyberiyke.TravelApp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
