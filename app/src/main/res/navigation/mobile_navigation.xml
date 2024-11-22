@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/flightLocationBottomSheet">
+    app:startDestination="@id/homeFragment">
 
     <dialog
         android:id="@+id/flightLocationBottomSheet"
@@ -42,6 +42,14 @@
         <argument
             android:name="tripDetail"
             app:argType="com.cyberiyke.TravelApp.data.model.TripDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.cyberiyke.TravelApp.ui.fragments.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_flightLocationBottomSheet"
+            app:destination="@id/flightLocationBottomSheet" />
     </fragment>
 
 </navigation>

@@ -26,12 +26,12 @@ class TripViewModel @Inject constructor(
     val trip: LiveData<NetworkResult<TripDetail>> = _trip
 
     fun fetchAllTrips() = viewModelScope.launch {
-        _status.value = NetworkResult.Loading()
+        _tripList.value = NetworkResult.Loading()
         try {
-            repository.getAllTrips()
-            _status.value = NetworkResult.Success("fetching Tip successfully!")
+            val value =  repository.getAllTrips()
+            _tripList.value = NetworkResult.Success(value)
         } catch (e: Exception) {
-            _status.value = NetworkResult.Error("Failed to fetch trip: ${e.message}")
+            _tripList.value = NetworkResult.Error("Failed to fetch trip: ${e.message}")
         }
     }
 

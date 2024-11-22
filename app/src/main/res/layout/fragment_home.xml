@@ -18,11 +18,12 @@
 
 
     <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/shapeableImageView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scaleType="fitXY"
-        app:srcCompat="@drawable/hotel"
-        app:layout_constraintTop_toBottomOf="@+id/materialToolbar"/>
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
+        app:srcCompat="@drawable/hotel" />
 
 
     <com.google.android.material.textview.MaterialTextView
@@ -63,6 +64,14 @@
         app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
         app:layout_constraintVertical_bias="0.81"
         app:srcCompat="@drawable/select" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/tripRecyclerview"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/loadButtonSheets" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

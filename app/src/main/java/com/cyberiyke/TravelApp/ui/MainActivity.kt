@@ -25,12 +25,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-       val navController = findNavController(R.id.nav_host_fragment)
-
-        binding.loadButtonSheets.setOnClickListener {
-            navController.navigate(R.id.flightLocationBottomSheet)
-        }
-
     }
 
     override fun onBackPressed() {
