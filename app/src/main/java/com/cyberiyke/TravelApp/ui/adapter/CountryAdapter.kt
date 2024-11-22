@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.cyberiyke.TravelApp.R
 
-class CountryAdapter(private var countryList: List<String>) :
+class CountryAdapter(private var countryList: List<String>,    private val onCountryClick: (String) -> Unit ) :
     RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
 
     inner class CountryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -22,6 +22,9 @@ class CountryAdapter(private var countryList: List<String>) :
 
     override fun onBindViewHolder(holder: CountryViewHolder, position: Int) {
         holder.countryName.text = countryList[position]
+        holder.itemView.setOnClickListener {
+            onCountryClick(countryList[position])
+        }
     }
 
     override fun getItemCount(): Int = countryList.size

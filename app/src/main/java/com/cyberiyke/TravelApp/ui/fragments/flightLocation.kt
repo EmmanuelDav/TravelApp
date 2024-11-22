@@ -9,12 +9,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cyberiyke.TravelApp.R
 import com.cyberiyke.TravelApp.ui.adapter.CountryAdapter
 import com.cyberiyke.TravelApp.ui.viewmodel.MainViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.android.material.button.MaterialButton
 import java.util.Locale
 
 class flightLocation : BottomSheetDialogFragment() {
@@ -34,10 +39,15 @@ class flightLocation : BottomSheetDialogFragment() {
 
         val searchBox = view.findViewById<EditText>(R.id.searchBox)
         val recyclerView = view.findViewById<RecyclerView>(R.id.countryRecyclerView)
+        val nextButton = view.findViewById<MaterialButton>(R.id.next)
+        val cancel = view.findViewById<ImageView>(R.id.cancel_button)
 
         // Initialize country data
         allCountries = getCountries()
-        countryAdapter = CountryAdapter(allCountries)
+        countryAdapter = CountryAdapter(allCountries){ selected ->
+            searchBox.setText(selected)
+            viewModel.flightLocation.value = selected
+        }
 
         // Set up RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(context)
@@ -56,6 +66,22 @@ class flightLocation : BottomSheetDialogFragment() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
 
+        nextButton.setOnClickListener {
+            if (searchBox.text.isNotEmpty()){
+                findNavController().navigate(R.id.action_flightLocationBottomSheet_to_flightDateBottomSheet)
+
+            }else{
+                Toast.makeText(
+                    requireContext(),
+                    "Select your destination first",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+
+        cancel.setOnClickListener {
+            dismiss()
+        }
 
         return view
     }
@@ -71,7 +97,7 @@ class flightLocation : BottomSheetDialogFragment() {
             val firstChar = Character.codePointAt(countryCode, 0) - asciiOffset + flagOffset
             val secondChar = Character.codePointAt(countryCode, 1) - asciiOffset + flagOffset
             val flag = String(Character.toChars(firstChar)) + String(Character.toChars(secondChar))
-            countriesWithEmojis.add("$countryName           $flag")
+            countriesWithEmojis.add("$countryName                   $flag")
         }
         return countriesWithEmojis
     }
