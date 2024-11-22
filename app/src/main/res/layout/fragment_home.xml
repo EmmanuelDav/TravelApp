@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar"
@@ -20,7 +26,7 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/shapeableImageView2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="500dp"
         android:scaleType="fitXY"
         app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
         app:srcCompat="@drawable/hotel" />
@@ -57,22 +63,32 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:layout_width="334dp"
         android:layout_height="273dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:id="@+id/loadButtonSheets"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="200dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
-        app:layout_constraintVertical_bias="0.81"
         app:srcCompat="@drawable/select" />
 
+        <ProgressBar
+            android:id="@+id/progress_circular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loadButtonSheets" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/tripRecyclerview"
-        android:layout_marginTop="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/loadButtonSheets" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tripRecyclerview"
+            android:layout_marginTop="30dp"
+            android:nestedScrollingEnabled="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/loadButtonSheets" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
 

@@ -1,7 +1,8 @@
 # News App 🗞
 [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)]
 
-News App is a simple news app 🗞️ which uses [NewsAPI](https://newsapi.org/) to fetch top news headlines from the API and also search for mews based on user query. The main aim of this app is to be a leading example for best pratices in morden android development architecture and also for a sample project
+Travel Template App is a simple Android app that uses the Beceptor CRUD API to manage travel details. The app allows users to create, fetch, update, and delete travel records, such as trip names, locations, and dates. The main aim of this app is to demonstrate modern Android development practices, using ViewModel, Repository, and LiveData to manage UI-related data and API calls. It also serves as a sample project for best practices in working with network requests, data persistence, and UI architecture.
+
 
 The codebase focuses 👓 on following key things:
 1. [ViewBinding](https://developer.android.com/topic/libraries/view-binding)
@@ -28,7 +29,7 @@ You will require latest version of Android Studio 3.0 (or newer) to be able to b
 ## API key 🔑
 You'll need to provide API key to fetch the news from the News Service (API). Currently the news is fetched from [NewsAPI](https://newsapi.org/) 
 
-- Generate an API key (It's only 2 steps!) from [NewsAPI](https://newsapi.org/)
+- Generate an API key (It's only 2 steps!) from [Beaceptor](https://newsapi.org/)
 - Add the apiKey as a value in your `local.properties`
 ```
     API_KEY = "<INSERT_YOUR_API_KEY>"

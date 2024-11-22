@@ -1,15 +1,21 @@
 package com.cyberiyke.TravelApp.ui.adapter
 
+import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.cyberiyke.TravelApp.R
 import com.cyberiyke.TravelApp.data.model.TripDetail
 import com.cyberiyke.TravelApp.databinding.LayoutItemTravelBinding
 
 /**
  * Created by Emmanuel Iyke  on 3/7/2024.
  */
-class TripAdapter()
+class TripAdapter(val context: Fragment)
     : RecyclerView.Adapter<TripAdapter.HomeViewHolder>() {
 
     private var mainArticleList = mutableListOf<TripDetail>()
@@ -49,6 +55,15 @@ class TripAdapter()
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         holder.bind(trips[position])
+        holder.itemView.setOnClickListener {
+            val bundle = Bundle().apply {
+                putParcelable("tripDetail", trips[position])
+            }
+            findNavController(context).navigate(
+                R.id.action_homeFragment_to_flightDetails,
+                bundle
+            )
+        }
     }
 
     inner class HomeViewHolder(private val binding: LayoutItemTravelBinding) : RecyclerView.ViewHolder(binding.root) {

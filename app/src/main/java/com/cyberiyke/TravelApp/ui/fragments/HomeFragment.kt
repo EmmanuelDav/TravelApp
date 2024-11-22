@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isGone
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -46,19 +47,21 @@ class HomeFragment : Fragment() {
 
 
         viewModel.fetchAllTrips()
-        tripAdapter = TripAdapter()
+        tripAdapter = TripAdapter(requireParentFragment())
 
 
         viewModel.tripList.observe(viewLifecycleOwner, Observer { result ->
             when (result) {
                 is NetworkResult.Loading -> {
-
+                 binding.progressCircular.isGone = false
 
                 }
                 is NetworkResult.Success -> {
                     binding.tripRecyclerview.layoutManager = LinearLayoutManager(activity)
                     binding.tripRecyclerview.adapter = tripAdapter
                     tripAdapter.trips = result.data
+                    binding.progressCircular.isGone = true
+
                 }
                 is NetworkResult.Error -> {
                     Toast.makeText(requireContext(), result.message, Toast.LENGTH_SHORT).show()

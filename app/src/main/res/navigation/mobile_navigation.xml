@@ -50,6 +50,9 @@
         <action
             android:id="@+id/action_homeFragment_to_flightLocationBottomSheet"
             app:destination="@id/flightLocationBottomSheet" />
+        <action
+            android:id="@+id/action_homeFragment_to_flightDetails"
+            app:destination="@id/flightDetails" />
     </fragment>
 
 </navigation>
