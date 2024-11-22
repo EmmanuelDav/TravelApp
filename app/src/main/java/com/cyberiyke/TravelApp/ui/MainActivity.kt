@@ -38,7 +38,4 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
-    fun setBottomNavigationVisibility(visible: Boolean) {
-        binding.navView.visibility = if (visible) View.VISIBLE else View.GONE
-    }
 }

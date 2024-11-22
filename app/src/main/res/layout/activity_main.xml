@@ -57,11 +57,20 @@
         android:layout_width="334dp"
         android:layout_height="273dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/loadFragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
         app:layout_constraintVertical_bias="0.81"
         app:srcCompat="@drawable/select" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:navGraph="@navigation/mobile_navigation"
+        app:defaultNavHost="true"
+        android:name="androidx.navigation.fragment.NavHostFragment" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

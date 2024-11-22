@@ -3,8 +3,8 @@ package com.cyberiyke.TravelApp.data.local
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "favourite_article")
-data class ArticleEntity(
+@Entity(tableName = "trips_travel")
+data class TripEntity(
 
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0,

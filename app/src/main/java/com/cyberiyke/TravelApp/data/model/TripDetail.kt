@@ -1,10 +1,7 @@
 package com.cyberiyke.TravelApp.data.model
 
-import com.google.gson.annotations.SerializedName
 
-
-
-data class Trip(
+data class TripDetail(
     var departureLocation: String = "",
     var destinationLocation: String = "",
     var startDate: String = "",

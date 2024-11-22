@@ -1,16 +1,13 @@
 package com.cyberiyke.TravelApp.data.repository
 
-import android.util.Log
 import androidx.lifecycle.LiveData
-import com.cyberiyke.TravelApp.data.local.ArticleDao
 import com.cyberiyke.newsApp.data.local.ArticleEntity
-import com.cyberiyke.TravelApp.data.network.ApiService
 import timber.log.Timber
 import javax.inject.Inject
 
 class ArticleRepository @Inject constructor(
     private val apiService: com.cyberiyke.TravelApp.data.network.ApiService,
-    private val articleDao: com.cyberiyke.TravelApp.data.local.ArticleDao
+    private val articleDao: com.cyberiyke.TravelApp.data.local.TripDao
 ) {
 
      // here we are fetching articles from the api and caching them in room database
