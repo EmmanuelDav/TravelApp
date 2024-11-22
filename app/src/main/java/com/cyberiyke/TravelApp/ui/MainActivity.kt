@@ -2,6 +2,7 @@ package com.cyberiyke.TravelApp.ui
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -31,5 +32,16 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+    override fun onBackPressed() {
+        val fragmentManager = supportFragmentManager
+        if (fragmentManager.backStackEntryCount > 0) {
+            Toast.makeText(this, "ttt", Toast.LENGTH_SHORT).show()
+            fragmentManager.popBackStack() // Navigate back to the previous fragment or activity
+        } else {
+            super.onBackPressed() // Default behavior: exit the app
+        }
+    }
+
 
 }

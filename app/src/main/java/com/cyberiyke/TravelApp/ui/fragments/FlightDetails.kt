@@ -74,6 +74,9 @@ class FlightDetails : Fragment() {
                     is NetworkResult.Success -> {
                         Toast.makeText(requireContext(), result.data, Toast.LENGTH_SHORT).show()
                         progressDialog.dismiss()
+                        findNavController().popBackStack()
+
+
                     }
                     is NetworkResult.Error -> {
                         Toast.makeText(requireContext(), result.message, Toast.LENGTH_LONG).show()
