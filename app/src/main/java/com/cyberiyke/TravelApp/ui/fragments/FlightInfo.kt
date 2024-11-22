@@ -40,20 +40,22 @@ class FlightInfo : BottomSheetDialogFragment() {
             if (binding.tripName.text?.isEmpty() == true || binding.tripStyle.text?.isEmpty() == true || binding.tripDescription.text?.isEmpty() == true) {
                 Toast.makeText(requireContext(), "Empty Field found", Toast.LENGTH_SHORT).show()
             } else {
-                viewModel.tripName.value = binding.tripName.text.toString()
-                viewModel.tripStyle.value = binding.tripStyle.text.toString()
-                viewModel.tripDescription.value = binding.tripDescription.text.toString()
-
-                val tripDetail = TripDetail(tripInfo = binding.tripDescription.text.toString())
+                val tripDetail = arguments?.getParcelable<TripDetail>("tripDetail")
+                tripDetail?.tripInfo = binding.tripDescription.text.toString()
+                tripDetail?.tripStyle = binding.tripStyle.text.toString()
+                tripDetail?.tripName = binding.tripName.text.toString()
                 val bundle = Bundle().apply {
                     putParcelable("tripDetail", tripDetail)
                 }
-                findNavController().navigate(R.id.action_tripInfoBottomSheet_to_flightDetails, bundle)
+                findNavController().navigate(
+                    R.id.action_tripInfoBottomSheet_to_flightDetails,
+                    bundle
+                )
             }
         }
 
         binding.cancelButton.setOnClickListener {
-          dismiss()
+            dismiss()
         }
 
         return binding.root

@@ -73,7 +73,8 @@ class FlightDatePicker : BottomSheetDialogFragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             }else{
-               val tripDetail = TripDetail(date = "${selectedStartDate.text} ${selectedEndDate.text.toString()}")
+                val tripDetail = arguments?.getParcelable<TripDetail>("tripDetail")
+                 tripDetail?.date = "${selectedStartDate.text} ${selectedEndDate.text.toString()}"
                 val bundle = Bundle().apply {
                     putParcelable("tripDetail", tripDetail)
                 }

@@ -17,7 +17,7 @@
         android:name="com.cyberiyke.TravelApp.ui.fragments.FlightDatePicker">
         <argument
             android:name="tripDetail"
-            app:argType="com.cyberiyke.TravelApp.models.TripDetail" />
+            app:argType="com.cyberiyke.TravelApp.data.model.TripDetail" />
         <action
             android:id="@+id/action_flightDateBottomSheet_to_tripInfoBottomSheet"
             app:destination="@id/tripInfoBottomSheet" />
@@ -28,7 +28,7 @@
         android:name="com.cyberiyke.TravelApp.ui.fragments.FlightInfo">
         <argument
             android:name="tripDetail"
-            app:argType="com.cyberiyke.TravelApp.models.TripDetail" />
+            app:argType="com.cyberiyke.TravelApp.data.model.TripDetail" />
         <action
             android:id="@+id/action_tripInfoBottomSheet_to_flightDetails"
             app:destination="@id/flightDetails" />
@@ -41,7 +41,7 @@
         tools:layout="@layout/fragment_flight_details">
         <argument
             android:name="tripDetail"
-            app:argType="com.cyberiyke.TravelApp.models.TripDetail" />
+            app:argType="com.cyberiyke.TravelApp.data.model.TripDetail" />
     </fragment>
 
 </navigation>

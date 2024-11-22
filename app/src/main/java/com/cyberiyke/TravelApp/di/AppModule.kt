@@ -24,7 +24,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
-    private const val BASE_URL = "https://newsapi.org/v2/"
+    private const val BASE_URL = "https://ca9e5bccd99332d54d8a.free.beeceptor.com/api/traveldetail/"
 
 
     @Provides
@@ -55,12 +55,13 @@ object AppModule {
             .build()
     }
 
+
+
     @Provides
     @Singleton
-    fun provideRetrofit(client: OkHttpClient): Retrofit {
+    fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(com.cyberiyke.TravelApp.di.AppModule.BASE_URL)
-            .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

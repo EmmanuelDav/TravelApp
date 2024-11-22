@@ -1,5 +1,6 @@
 package com.cyberiyke.TravelApp.ui.fragments
 
+import android.app.ProgressDialog
 import androidx.fragment.app.viewModels
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -56,6 +57,15 @@ class FlightDetails : Fragment() {
             binding.tripDate.text = date
         }
 
+        binding.addActivitiesButton.setOnClickListener {
+            val progressDialog = ProgressDialog(requireContext())
+            progressDialog.setMessage("Loading data...")
+            progressDialog.setCancelable(false)
+            progressDialog.show()
+
+        }
+
 
     }
+
 }
