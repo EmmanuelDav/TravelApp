@@ -1,44 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@id/flightLocationBottomSheet">
 
-    <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.cyberiyke.newsApp.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home">
-
+    <dialog
+        android:id="@+id/flightLocationBottomSheet"
+        android:name="com.cyberiyke.TravelApp.ui.fragments.flightLocation"
+        app:dialogTitle="Flight Location" >
         <action
-            android:id="@+id/action_navigation_home_to_newsItemFragment"
-            app:destination="@id/newsItemFragment">
-        <argument
-            android:name="url"
-            app:argType="string" />
-        </action>
+            android:id="@+id/action_flightLocationBottomSheet_to_flightDateBottomSheet"
+            app:destination="@id/flightDateBottomSheet" />
+    </dialog>
 
-    </fragment>
-
-    <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.cyberiyke.newsApp.ui.favourite.FavouriteFragment"
-        android:label="@string/title_favourite"
-        tools:layout="@layout/fragment_favourite" >
+    <dialog
+        android:id="@+id/flightDateBottomSheet"
+        android:name="com.cyberiyke.TravelApp.ui.fragments.FlightDatePicker"
+        app:dialogTitle="Flight Date" >
         <action
-            android:id="@+id/action_navigation_dashboard_to_newsItemFragment"
-            app:destination="@id/newsItemFragment" />
-    </fragment>
+            android:id="@+id/action_flightDateBottomSheet_to_tripInfoBottomSheet"
+            app:destination="@id/tripInfoBottomSheet" />
+    </dialog>
 
-    <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.cyberiyke.newsApp.ui.settings.SettingsFragment"
-        android:label="@string/title_settings"
-        tools:layout="@layout/fragment_settings" />
-    <fragment
-        android:id="@+id/newsItemFragment"
-        android:name="com.cyberiyke.newsApp.ui.home.newsitem.NewsItemFragment"
-        android:label="fragment_news_item"
-        tools:layout="@layout/fragment_news_item" />
+    <dialog
+        android:id="@+id/tripInfoBottomSheet"
+        android:name="com.cyberiyke.TravelApp.ui.fragments.FlightInfo"
+        app:dialogTitle="Trip Info" />
 </navigation>

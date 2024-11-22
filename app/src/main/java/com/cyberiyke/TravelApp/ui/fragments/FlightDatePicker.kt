@@ -1,4 +1,4 @@
-package com.cyberiyke.TravelApp.ui.flightLocaton
+package com.cyberiyke.TravelApp.ui.fragments
 
 import androidx.fragment.app.viewModels
 import android.os.Bundle
@@ -7,14 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.cyberiyke.TravelApp.R
+import com.cyberiyke.TravelApp.ui.viewmodel.MainViewModel
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class flightLocation : Fragment() {
+class FlightDatePicker : BottomSheetDialogFragment() {
 
     companion object {
-        fun newInstance() = flightLocation()
+        fun newInstance() = FlightDatePicker()
     }
 
-    private val viewModel: FlightLocationViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +28,6 @@ class flightLocation : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_flight_location, container, false)
+        return inflater.inflate(R.layout.fragment_flight_date_picker, container, false)
     }
 }

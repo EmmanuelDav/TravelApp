@@ -1,4 +1,4 @@
-package com.cyberiyke.TravelApp.ui.flightDate
+package com.cyberiyke.TravelApp.ui.fragments
 
 import androidx.fragment.app.viewModels
 import android.os.Bundle
@@ -7,14 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.cyberiyke.TravelApp.R
+import com.cyberiyke.TravelApp.ui.viewmodel.MainViewModel
 
-class FlightDatePicker : Fragment() {
+class FlightDetails : Fragment() {
 
     companion object {
-        fun newInstance() = FlightDatePicker()
+        fun newInstance() = FlightDetails()
     }
 
-    private val viewModel: FlightDatePickerViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +27,6 @@ class FlightDatePicker : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_flight_date_picker, container, false)
+        return inflater.inflate(R.layout.fragment_flight_details, container, false)
     }
 }

@@ -99,6 +99,10 @@ dependencies {
     //facebook shimmer
     implementation (libs.shimmer)
 
+    //fragment
+
+
+
 
     //lifecycle
     implementation (libs.androidx.lifecycle.runtime.ktx) // Use the latest version

@@ -4,12 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.cyberiyke.newsApp.R
 import com.cyberiyke.newsApp.data.local.ArticleEntity
-import com.cyberiyke.TravelApp.data.model.Article
 import com.cyberiyke.newsApp.databinding.LayoutItemNewsBinding
 import com.cyberiyke.newsApp.ui.favourite.FavouriteViewModel
 import com.cyberiyke.newsApp.ui.home.HomeViewModel
@@ -17,8 +15,8 @@ import com.cyberiyke.newsApp.ui.home.HomeViewModel
 /**
  * Created by Emmanuel Iyke  on 3/7/2024.
  */
-class ArticlesAdapter<T : ViewModel>(private val viewModel: T, private val listener: ((ArticleEntity) -> Unit)? = null)
-    : RecyclerView.Adapter<ArticlesAdapter<T>.HomeViewHolder>() {
+class TripAdapter<T : ViewModel>(private val viewModel: T, private val listener: ((ArticleEntity) -> Unit)? = null)
+    : RecyclerView.Adapter<TripAdapter<T>.HomeViewHolder>() {
 
     private var mainArticleList = mutableListOf<ArticleEntity>()
     private var searchResultsList = mutableListOf<ArticleEntity>()
