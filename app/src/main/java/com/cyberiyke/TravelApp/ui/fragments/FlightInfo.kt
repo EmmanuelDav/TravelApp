@@ -11,9 +11,11 @@ import androidx.navigation.fragment.findNavController
 import com.cyberiyke.TravelApp.R
 import com.cyberiyke.TravelApp.data.model.TripDetail
 import com.cyberiyke.TravelApp.databinding.FragmentFlightInfoBinding
-import com.cyberiyke.TravelApp.ui.viewmodel.MainViewModel
+import com.cyberiyke.TravelApp.ui.viewmodel.TripViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FlightInfo : BottomSheetDialogFragment() {
 
 
@@ -23,7 +25,7 @@ class FlightInfo : BottomSheetDialogFragment() {
         fun newInstance() = FlightDetails()
     }
 
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: TripViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

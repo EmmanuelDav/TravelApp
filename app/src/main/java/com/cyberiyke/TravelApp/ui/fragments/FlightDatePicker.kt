@@ -14,12 +14,14 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.cyberiyke.TravelApp.R
 import com.cyberiyke.TravelApp.data.model.TripDetail
-import com.cyberiyke.TravelApp.ui.viewmodel.MainViewModel
+import com.cyberiyke.TravelApp.ui.viewmodel.TripViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
+@AndroidEntryPoint
 class FlightDatePicker : BottomSheetDialogFragment() {
 
     private lateinit var startDateCalendarView: CalendarView
@@ -32,7 +34,7 @@ class FlightDatePicker : BottomSheetDialogFragment() {
         fun newInstance() = FlightDatePicker()
     }
 
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: TripViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

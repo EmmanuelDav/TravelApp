@@ -31,5 +31,5 @@ interface ApiService {
     suspend fun partiallyUpdateTrip(@Path("id") id: String, @Body updates: Map<String, Any>): TripDetail
 
     @DELETE("/api/traveldetail/{id}")
-    suspend fun deleteTrip(@Path("id") id: String): Response<Unit>
+    suspend fun deleteTrip(@Path("id") id: String): String
 }

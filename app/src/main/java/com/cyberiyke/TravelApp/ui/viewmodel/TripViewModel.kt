@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyberiyke.TravelApp.data.model.TripDetail
+import com.cyberiyke.TravelApp.data.network.NetworkResult
 import com.cyberiyke.TravelApp.data.repository.TripRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -15,64 +16,72 @@ class TripViewModel @Inject constructor(
     private val repository: TripRepository
 ) : ViewModel() {
 
-    private val _tripList = MutableLiveData<List<TripDetail>>()
-    val tripList: LiveData<List<TripDetail>> = _tripList
+    private val _tripList = MutableLiveData<NetworkResult<List<TripDetail>>>()
+    val tripList: LiveData<NetworkResult<List<TripDetail>>> = _tripList
 
-    private val _trip = MutableLiveData<TripDetail>()
-    val trip: LiveData<TripDetail> = _trip
+    private val _trip = MutableLiveData<NetworkResult<TripDetail>>()
+    val trip: LiveData<NetworkResult<TripDetail>> = _trip
 
-    private val _status = MutableLiveData<String>()
-    val status: LiveData<String> = _status
 
     fun fetchAllTrips() = viewModelScope.launch {
+        _tripList.value = NetworkResult.Loading() // Emit Loading state
+
         try {
-            _tripList.value = repository.getAllTrips()
+            val value = repository.getAllTrips()
+            _tripList.value = NetworkResult.Success(value) // Emit Success state
         } catch (e: Exception) {
-            _status.value = "Failed to fetch trips: ${e.message}"
+            _tripList.value = NetworkResult.Error(e.message ?: "Unknown error occurred") // Emit Error state
         }
     }
 
     fun fetchTripById(id: String) = viewModelScope.launch {
+        _trip.value = NetworkResult.Loading() // Emit Loading state
+
         try {
-            _trip.value = repository.getTripById(id)
+            var value = repository.getTripById(id)
+            _trip.value = NetworkResult.Success(value)
         } catch (e: Exception) {
-            _status.value = "Failed to fetch trip: ${e.message}"
+            _trip.value = NetworkResult.Error(e.message?:"Unknown error")
         }
     }
 
     fun createNewTrip(tripDetail: TripDetail) = viewModelScope.launch {
+        _trip.value = NetworkResult.Loading()
         try {
-            repository.createTrip(tripDetail)
-            _status.value = "Trip created successfully!"
+           val value =  repository.createTrip(tripDetail)
+            _trip.value = NetworkResult.Success(value)
         } catch (e: Exception) {
-            _status.value = "Failed to create trip: ${e.message}"
+            _trip.value = NetworkResult.Error("Failed to create trip: ${e.message}")
         }
     }
 
     fun updateTrip(id: String, tripDetail: TripDetail) = viewModelScope.launch {
+        _trip.value = NetworkResult.Loading()
         try {
-            repository.updateTrip(id, tripDetail)
-            _status.value = "Trip updated successfully!"
+            val value  = repository.updateTrip(id, tripDetail)
+            _trip.value = NetworkResult.Success(value)
         } catch (e: Exception) {
-            _status.value = "Failed to update trip: ${e.message}"
+            _trip.value = NetworkResult.Error("Failed to update trip: ${e.message}")
         }
     }
 
     fun partiallyUpdateTrip(id: String, updates: Map<String, Any>) = viewModelScope.launch {
+        _trip.value = NetworkResult.Loading()
         try {
-            repository.partiallyUpdateTrip(id, updates)
-            _status.value = "Trip partially updated successfully!"
+            val value = repository.partiallyUpdateTrip(id, updates)
+            _trip.value = NetworkResult.Success(value)
         } catch (e: Exception) {
-            _status.value = "Failed to partially update trip: ${e.message}"
+            _trip.value = NetworkResult.Error("Failed to partially update trip: ${e.message}")
         }
     }
 
     fun deleteTrip(id: String) = viewModelScope.launch {
+        _trip.value = NetworkResult.Loading()
         try {
-            repository.deleteTrip(id)
-            _status.value = "Trip deleted successfully!"
+            val value = repository.deleteTrip(id)
+           // _trip.value = NetworkResult.Success(value)
         } catch (e: Exception) {
-            _status.value = "Failed to delete trip: ${e.message}"
+            _trip.value = NetworkResult.Error("Failed to delete trip: ${e.message}")
         }
     }
 }

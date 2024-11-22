@@ -18,11 +18,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cyberiyke.TravelApp.R
 import com.cyberiyke.TravelApp.data.model.TripDetail
 import com.cyberiyke.TravelApp.ui.adapter.CountryAdapter
-import com.cyberiyke.TravelApp.ui.viewmodel.MainViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.button.MaterialButton
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.Locale
 
+@AndroidEntryPoint
 class flightLocation : BottomSheetDialogFragment() {
 
 

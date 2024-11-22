@@ -14,8 +14,10 @@ import com.cyberiyke.TravelApp.R
 import com.cyberiyke.TravelApp.data.model.TripDetail
 import com.cyberiyke.TravelApp.databinding.FragmentFlightDetailsBinding
 import com.cyberiyke.TravelApp.databinding.FragmentFlightInfoBinding
-import com.cyberiyke.TravelApp.ui.viewmodel.MainViewModel
+import com.cyberiyke.TravelApp.ui.viewmodel.TripViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FlightDetails : Fragment() {
 
     private lateinit var binding:FragmentFlightDetailsBinding
@@ -24,7 +26,7 @@ class FlightDetails : Fragment() {
         fun newInstance() = FlightDetails()
     }
 
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: TripViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,15 +55,15 @@ class FlightDetails : Fragment() {
             binding.tripLocation.text = "${it.location}"
         }
 
-        viewModel.flightDate.observe(viewLifecycleOwner) { date ->
-            binding.tripDate.text = date
-        }
+
 
         binding.addActivitiesButton.setOnClickListener {
             val progressDialog = ProgressDialog(requireContext())
             progressDialog.setMessage("Loading data...")
             progressDialog.setCancelable(false)
             progressDialog.show()
+
+            viewModel.createNewTrip(tripDetail!!)
 
         }
 
