@@ -1,7 +1,7 @@
 # News App 🗞
 [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)]
 
-Travel Template App is a simple Android app that uses the Beceptor CRUD API to manage travel details. The app allows users to create, fetch, update, and delete travel records, such as trip names, locations, and dates. The main aim of this app is to demonstrate modern Android development practices, using ViewModel, Repository, and LiveData to manage UI-related data and API calls. It also serves as a sample project for best practices in working with network requests, data persistence, and UI architecture.
+Travel Template App is a simple Android app that uses the Beceptor CRUD API to manage travel details. The app allows users to create, fetch travel records, such as trip names, locations, and dates. The main aim of this app is to demonstrate modern Android development practices, using ViewModel, Repository, and LiveData to manage UI-related data and API calls. It also serves as a sample project for best practices in working with network requests, data persistence, and UI architecture.
 
 
 The codebase focuses 👓 on following key things:
@@ -27,12 +27,11 @@ The idea is to keep the app super simple while demonstrating new libraries and t
 You will require latest version of Android Studio 3.0 (or newer) to be able to build the app
 
 ## API key 🔑
-You'll need to provide API key to fetch the news from the News Service (API). Currently the news is fetched from [NewsAPI](https://newsapi.org/) 
+[beeceptor](https://app.beeceptor.com/)  dooes require apikey  but
 
-- Generate an API key (It's only 2 steps!) from [Beaceptor](https://newsapi.org/)
-- Add the apiKey as a value in your `local.properties`
+- Generate an API  (It's only 2 steps!) from [Beaceptor](https://newsapi.org/) or use mine (its public and free )
 ```
-    API_KEY = "<INSERT_YOUR_API_KEY>"
+    My Api  = "https://ca9e5bccd99332d54d8a.free.beeceptor.com/api/traveldetail"
 ```
 - Build the app 
 - Good Luck 🎉
@@ -58,6 +57,35 @@ Read more:
 ![Architecture](https://developer.android.com/topic/libraries/architecture/images/final-architecture.png)
 
 ## TODO
+
+### API Endpoints Summary
+
+1. **GET `/api/traveldetail/`**
+    - Fetches all trip records.
+    - Used to populate the list of trips in the main UI.
+
+2. **GET `/api/traveldetail/{id}`**
+    - Retrieves details of a specific trip by ID.
+    - Used for viewing trip details in a detailed view or fragment.
+
+3. **POST `/api/traveldetail/`**
+    - Creates a new trip.
+    - Used in forms to add a new trip.
+
+4. **PUT `/api/traveldetail/{id}`**
+    - Updates all fields of an existing trip by ID.
+    - Used when editing a trip completely.
+
+5. **PATCH `/api/traveldetail/{id}`**
+    - Updates specific fields of a trip by ID.
+    - Used for partial edits like changing the trip name or date.
+
+6. **DELETE `/api/traveldetail/{id}`**
+    - Deletes a trip by ID.
+    - Used for removing trips from the list.
+
+
+This API is integrated with **Retrofit** to perform CRUD operations, ensuring seamless interaction with the backend for managing travel details.
 
 Some features that needs to be enhanced but didnt due to lack of time 
 
