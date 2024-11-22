@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.cyberiyke.TravelApp.R
 import com.cyberiyke.TravelApp.data.model.TripDetail
+import com.cyberiyke.TravelApp.data.network.NetworkResult
 import com.cyberiyke.TravelApp.databinding.FragmentFlightDetailsBinding
 import com.cyberiyke.TravelApp.databinding.FragmentFlightInfoBinding
 import com.cyberiyke.TravelApp.ui.viewmodel.TripViewModel
@@ -64,6 +65,23 @@ class FlightDetails : Fragment() {
             progressDialog.show()
 
             viewModel.createNewTrip(tripDetail!!)
+
+            viewModel.status.observe(viewLifecycleOwner) { result ->
+                when (result) {
+                    is NetworkResult.Loading -> {
+                        Toast.makeText(requireContext(), "Loading...", Toast.LENGTH_SHORT).show()
+                    }
+                    is NetworkResult.Success -> {
+                        Toast.makeText(requireContext(), result.data, Toast.LENGTH_SHORT).show()
+                        progressDialog.dismiss()
+                    }
+                    is NetworkResult.Error -> {
+                        Toast.makeText(requireContext(), result.message, Toast.LENGTH_LONG).show()
+                        progressDialog.dismiss()
+                    }
+                }
+            }
+
 
         }
 
