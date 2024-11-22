@@ -3,8 +3,8 @@ package com.cyberiyke.TravelApp.di
 import android.content.Context
 import android.util.Log
 import androidx.room.Room
-import com.cyberiyke.newsApp.data.local.AppDatabase
-import com.cyberiyke.newsApp.data.local.MIGRATION_1_2
+import com.cyberiyke.TravelApp.data.local.AppDatabase
+import com.cyberiyke.TravelApp.data.local.MIGRATION_1_2
 import com.cyberiyke.TravelApp.data.network.ApiService
 import com.google.firebase.crashlytics.BuildConfig
 import com.google.firebase.crashlytics.FirebaseCrashlytics
@@ -38,7 +38,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideArticleDao(database: AppDatabase) = database.getArticleDao()
+    fun provideArticleDao(database: AppDatabase) = database.getTripDao()
 
 
     @Provides
@@ -48,7 +48,7 @@ object AppModule {
             .addInterceptor{
                 chain ->
                 val request = chain.request().newBuilder()
-                    .addHeader("Authorization", com.cyberiyke.newsApp.BuildConfig.API_KEY)
+                    .addHeader("Authorization", com.cyberiyke.TravelApp.BuildConfig.API_KEY)
                     .build()
                 chain.proceed(request)
             }

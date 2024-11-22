@@ -1,4 +1,4 @@
-package com.cyberiyke.newsApp
+package com.cyberiyke.TravelApp
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

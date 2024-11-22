@@ -74,8 +74,6 @@
                 android:layout_weight="1"
                 android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="5dp"
-                app:cardStrokeColor="@color/blue"
-                app:cardStrokeWidth="2dp"
                 app:strokeColor="@color/purple_500">
 
                 <LinearLayout
@@ -112,8 +110,6 @@
                 android:layout_weight="1"
                 android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="5dp"
-                app:cardStrokeColor="@color/blue"
-                app:cardStrokeWidth="2dp"
                 app:strokeColor="@color/purple_500">
 
                 <LinearLayout
@@ -201,7 +197,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:backgroundTint="#1A73E8"
-                        android:cornerRadius="3dp"
                         android:elevation="2dp"
                         android:padding="12dp"
                         android:text="Add Activities"
@@ -252,7 +247,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:backgroundTint="#1A73E8"
-                        android:cornerRadius="2dp"
                         android:elevation="2dp"
                         android:padding="12dp"
                         android:text="Add Flight"

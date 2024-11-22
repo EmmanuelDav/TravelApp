@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.News" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.News" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -20,11 +20,4 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">8dp</item>
     </style>
-
-    <shape xmlns:android="http://schemas.android.com/apk/res/android">
-        <corners android:radius="8dp" />
-        <solid android:color="#F5F5F5" />
-    </shape>
-
-
 </resources>

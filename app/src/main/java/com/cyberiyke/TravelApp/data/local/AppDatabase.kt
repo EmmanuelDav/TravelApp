@@ -16,7 +16,7 @@ val MIGRATION_1_2 = object : Migration(1, 2) {
 @Database( entities = [TripEntity::class], version = 1)
 abstract class AppDatabase: RoomDatabase() {
 
-    abstract fun getArticleDao(): com.cyberiyke.TravelApp.data.local.TripDao
+    abstract fun getTripDao(): com.cyberiyke.TravelApp.data.local.TripDao
 
     companion object {
         const val DATABASE_NAME = "news_app_db" // Centralized database name

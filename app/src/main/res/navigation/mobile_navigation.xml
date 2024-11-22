@@ -5,8 +5,7 @@
 
     <dialog
         android:id="@+id/flightLocationBottomSheet"
-        android:name="com.cyberiyke.TravelApp.ui.fragments.flightLocation"
-        app:dialogTitle="Flight Location" >
+        android:name="com.cyberiyke.TravelApp.ui.fragments.flightLocation">
         <action
             android:id="@+id/action_flightLocationBottomSheet_to_flightDateBottomSheet"
             app:destination="@id/flightDateBottomSheet" />
@@ -14,8 +13,7 @@
 
     <dialog
         android:id="@+id/flightDateBottomSheet"
-        android:name="com.cyberiyke.TravelApp.ui.fragments.FlightDatePicker"
-        app:dialogTitle="Flight Date" >
+        android:name="com.cyberiyke.TravelApp.ui.fragments.FlightDatePicker">
         <action
             android:id="@+id/action_flightDateBottomSheet_to_tripInfoBottomSheet"
             app:destination="@id/tripInfoBottomSheet" />
@@ -23,6 +21,5 @@
 
     <dialog
         android:id="@+id/tripInfoBottomSheet"
-        android:name="com.cyberiyke.TravelApp.ui.fragments.FlightInfo"
-        app:dialogTitle="Trip Info" />
+        android:name="com.cyberiyke.TravelApp.ui.fragments.FlightInfo"/>
 </navigation>

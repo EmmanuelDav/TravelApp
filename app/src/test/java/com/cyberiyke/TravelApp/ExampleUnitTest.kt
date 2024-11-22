@@ -1,4 +1,4 @@
-package com.cyberiyke.newsApp
+package com.cyberiyke.TravelApp
 
 import org.junit.Test
 
