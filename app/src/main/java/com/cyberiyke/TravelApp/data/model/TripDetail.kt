@@ -2,12 +2,11 @@ package com.cyberiyke.TravelApp.data.model
 
 
 data class TripDetail(
-    var departureLocation: String = "",
-    var destinationLocation: String = "",
-    var startDate: String = "",
-    var endDate: String = "",
+    var location: String = "",
+    var date: String = "",
+    var tripName: String = "",
+    var tripStyle: String = "",
     var tripInfo: String = "",
-    var hotelList:List<Hotels> = arrayListOf()
 )
 
 

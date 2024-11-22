@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     app:startDestination="@id/flightLocationBottomSheet">
 
     <dialog
@@ -21,5 +22,14 @@
 
     <dialog
         android:id="@+id/tripInfoBottomSheet"
-        android:name="com.cyberiyke.TravelApp.ui.fragments.FlightInfo"/>
+        android:name="com.cyberiyke.TravelApp.ui.fragments.FlightInfo">
+        <action
+            android:id="@+id/action_tripInfoBottomSheet_to_flightDetails"
+            app:destination="@id/flightDetails" />
+    </dialog>
+    <fragment
+        android:id="@+id/flightDetails"
+        android:name="com.cyberiyke.TravelApp.ui.fragments.FlightDetails"
+        android:label="fragment_flight_details"
+        tools:layout="@layout/fragment_flight_details" />
 </navigation>

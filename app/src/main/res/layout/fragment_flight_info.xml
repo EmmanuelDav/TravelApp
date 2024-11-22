@@ -90,7 +90,7 @@
                 app:boxStrokeColor="@color/purple_500">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/topic"
+                    android:id="@+id/tripName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Enter your trip name"
@@ -123,6 +123,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
+                    android:id="@+id/tripStyle"
                     android:layout_height="wrap_content"
                     android:hint="Select Travel Style"
                     android:inputType="text" />
@@ -156,6 +157,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
+                    android:id="@+id/tripDescription"
                     android:inputType="textMultiLine"
                     android:gravity="top"
                     android:minLines="5" />
@@ -180,6 +182,7 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/next"
                 android:layout_marginTop="14dp"
                 android:backgroundTint="#1E88E5"
                 android:text="Next"

@@ -8,13 +8,17 @@ class MainViewModel: ViewModel() {
 
         val flightLocation = MutableLiveData<String>()
         val flightDate = MutableLiveData<String>()
-        val tripInfo = MutableLiveData<String>()
+        val tripName = MutableLiveData<String>()
+        val tripStyle = MutableLiveData<String>()
+        val tripDescription = MutableLiveData<String>()
 
         fun getTripDetails(): TripDetail {
             return TripDetail(
                 flightLocation.value ?: "",
                 flightDate.value ?: "",
-                tripInfo.value ?: ""
+                tripName.value ?: "",
+                tripStyle.value?:"",
+                tripDescription.value?:""
             )
         }
 

@@ -54,10 +54,12 @@
 
             <CalendarView
                 android:layout_width="match_parent"
+                android:id="@+id/startDateCalendarView"
                 android:layout_height="wrap_content" />
 
             <CalendarView
                 android:layout_width="match_parent"
+                android:id="@+id/endDateCalendarView"
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
@@ -90,6 +92,7 @@
                     android:padding="8dp">
 
                     <TextView
+                        android:id="@+id/start_date_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Start Date"
@@ -97,9 +100,10 @@
                         android:textSize="12sp" />
 
                     <TextView
+                        android:id="@+id/selectedStartDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Sat, Feb 2"
+                        android:text="Select a date"
                         android:textColor="#000000"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -118,6 +122,7 @@
                     android:padding="8dp">
 
                     <TextView
+                        android:id="@+id/end_date_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="End Date"
@@ -125,9 +130,10 @@
                         android:textSize="12sp" />
 
                     <TextView
+                        android:id="@+id/selectedEndDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Wed, Feb 5"
+                        android:text="Select a date"
                         android:textColor="#000000"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -138,7 +144,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:backgroundTint="#1E88E5"
-                android:text="Choose Date"
+                android:id="@+id/next"
+                android:text="Next"
                 android:textColor="#FFFFFF"
                 app:cornerRadius="5dp" />
         </LinearLayout>

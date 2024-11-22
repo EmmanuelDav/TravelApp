@@ -6,14 +6,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.cyberiyke.TravelApp.R
+import com.cyberiyke.TravelApp.databinding.FragmentFlightInfoBinding
 import com.cyberiyke.TravelApp.ui.viewmodel.MainViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class FlightInfo : BottomSheetDialogFragment() {
 
+
+    private lateinit var binding: FragmentFlightInfoBinding
+
     companion object {
-        fun newInstance() = FlightInfo()
+        fun newInstance() = FlightDetails()
     }
 
     private val viewModel: MainViewModel by viewModels()
@@ -28,6 +34,22 @@ class FlightInfo : BottomSheetDialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_flight_info, container, false)
+        binding = FragmentFlightInfoBinding.inflate(layoutInflater)
+        binding.next.setOnClickListener {
+            if (binding.tripName.text?.isEmpty() == true || binding.tripStyle.text?.isEmpty() == true || binding.tripDescription.text?.isEmpty() == true) {
+                Toast.makeText(requireContext(), "Empty Field found", Toast.LENGTH_SHORT).show()
+            } else {
+                viewModel.tripName.value = binding.tripName.text.toString()
+                viewModel.tripStyle.value = binding.tripStyle.text.toString()
+                viewModel.tripDescription.value = binding.tripDescription.text.toString()
+                findNavController().navigate(R.id.action_tripInfoBottomSheet_to_flightDetails)
+            }
+        }
+
+        binding.cancelButton.setOnClickListener {
+          dismiss()
+        }
+
+        return binding.root
     }
 }
