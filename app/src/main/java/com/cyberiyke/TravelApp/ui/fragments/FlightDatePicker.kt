@@ -13,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.cyberiyke.TravelApp.R
+import com.cyberiyke.TravelApp.data.model.TripDetail
 import com.cyberiyke.TravelApp.ui.viewmodel.MainViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import java.text.SimpleDateFormat
@@ -72,8 +73,14 @@ class FlightDatePicker : BottomSheetDialogFragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             }else{
-                findNavController().navigate(R.id.action_flightDateBottomSheet_to_tripInfoBottomSheet)
-                viewModel.flightDate.value = "${selectedStartDate.text}    ${selectedEndDate.text}"
+               val tripDetail = TripDetail(date = "${selectedStartDate.text} ${selectedEndDate.text.toString()}")
+                val bundle = Bundle().apply {
+                    putParcelable("tripDetail", tripDetail)
+                }
+                findNavController().navigate(R.id.action_flightDateBottomSheet_to_tripInfoBottomSheet, bundle)
+
+
+
 
             }
         }

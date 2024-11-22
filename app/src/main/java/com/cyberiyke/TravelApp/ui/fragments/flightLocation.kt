@@ -16,6 +16,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cyberiyke.TravelApp.R
+import com.cyberiyke.TravelApp.data.model.TripDetail
 import com.cyberiyke.TravelApp.ui.adapter.CountryAdapter
 import com.cyberiyke.TravelApp.ui.viewmodel.MainViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -25,9 +26,9 @@ import java.util.Locale
 class flightLocation : BottomSheetDialogFragment() {
 
 
-    private val viewModel: MainViewModel by viewModels()
     private lateinit var countryAdapter: CountryAdapter
     private lateinit var allCountries: List<String>
+    private lateinit var tripDetail: TripDetail
 
 
 
@@ -46,7 +47,8 @@ class flightLocation : BottomSheetDialogFragment() {
         allCountries = getCountries()
         countryAdapter = CountryAdapter(allCountries){ selected ->
             searchBox.setText(selected)
-            viewModel.flightLocation.value = selected
+            tripDetail = TripDetail(location = selected)
+
         }
 
         // Set up RecyclerView
@@ -68,8 +70,13 @@ class flightLocation : BottomSheetDialogFragment() {
 
         nextButton.setOnClickListener {
             if (searchBox.text.isNotEmpty()){
-                findNavController().navigate(R.id.action_flightLocationBottomSheet_to_flightDateBottomSheet)
-
+                val bundle = Bundle().apply {
+                    putParcelable("tripDetail", tripDetail)
+                }
+                findNavController().navigate(
+                    R.id.action_flightLocationBottomSheet_to_flightDateBottomSheet,
+                    bundle
+                )
             }else{
                 Toast.makeText(
                     requireContext(),

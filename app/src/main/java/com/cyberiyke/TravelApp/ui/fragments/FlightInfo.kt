@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.cyberiyke.TravelApp.R
+import com.cyberiyke.TravelApp.data.model.TripDetail
 import com.cyberiyke.TravelApp.databinding.FragmentFlightInfoBinding
 import com.cyberiyke.TravelApp.ui.viewmodel.MainViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -42,7 +43,12 @@ class FlightInfo : BottomSheetDialogFragment() {
                 viewModel.tripName.value = binding.tripName.text.toString()
                 viewModel.tripStyle.value = binding.tripStyle.text.toString()
                 viewModel.tripDescription.value = binding.tripDescription.text.toString()
-                findNavController().navigate(R.id.action_tripInfoBottomSheet_to_flightDetails)
+
+                val tripDetail = TripDetail(tripInfo = binding.tripDescription.text.toString())
+                val bundle = Bundle().apply {
+                    putParcelable("tripDetail", tripDetail)
+                }
+                findNavController().navigate(R.id.action_tripInfoBottomSheet_to_flightDetails, bundle)
             }
         }
 

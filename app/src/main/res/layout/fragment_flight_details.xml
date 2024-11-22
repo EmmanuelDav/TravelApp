@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.fragments.FlightDetails">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,6 +33,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
+                android:id="@+id/tripDate"
                 android:layout_height="wrap_content"
                 android:background="#F7F9FC"
                 android:drawableStart="@drawable/calinder"
@@ -46,12 +48,16 @@
                 style="@style/TextAppearance.MaterialComponents.Headline6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/tripLocation"
                 android:text="Bahamas Family Trip"
                 android:textSize="17sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/tripdestination"
                 android:text="New York, United States of America | Solo Trip"
                 android:textSize="14sp" />
 
